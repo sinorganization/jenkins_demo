@@ -1,0 +1,12 @@
+ withSonarQubeEnv('SonarCloud') {
+        // Here I'm assuming you have Maven in your PATH. If it's not the case, 
+        // you should use the full path to the Maven executable.
+        sh '''
+            mvn clean verify sonar:sonar \\
+                -Dsonar.host.url=<https://sonarcloud.io> \\
+                -Dsonar.login=08b202065a1e737618e57f0aac82e30b7d4dfdc2 \\
+                -Dsonar.organization=sidat-ks \\
+                -Dsonar.projectKey=sidatKS_BootCamp \\
+                -Dsonar.java.binaries=target/classes
+        '''
+    }
